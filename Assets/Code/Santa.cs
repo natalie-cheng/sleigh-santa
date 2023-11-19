@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Santa : MonoBehaviour
 {
+    // santa sprites
     public Sprite frontSanta;
     public Sprite backSanta;
     public Sprite rightSanta;
