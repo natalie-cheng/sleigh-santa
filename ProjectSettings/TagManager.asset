@@ -8,12 +8,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Village
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Santa
+  - Grinch
+  - Gift
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Village
+    uniqueID: 1033837545
+    locked: 0
+  - name: Santa
+    uniqueID: 549042881
+    locked: 0
+  - name: Gift
+    uniqueID: 877479871
     locked: 0
