@@ -33,7 +33,6 @@ public class House : MonoBehaviour
             // then this house is the nearest house - the one to be gifted
             Utilities.nearestHouse = this;
             nearHouse = true;
-            //Debug.Log("near house");
         }
         else
         {

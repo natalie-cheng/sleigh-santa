@@ -8,12 +8,15 @@ public class Grinch : MonoBehaviour
     private Transform player;
 
     // radius to disappear from the player
-    private float radius = 2;
+    private float radius = 1;
 
     // whether spotted by the player
     private bool seen = false;
     // how long the grinch stays after spotted
-    private float spottedTime = 1;
+    private float spottedTime = 0.75f;
+
+    // the gift that this grinch is attached to
+    public GameObject attachedGift;
 
     // grinch vars
     private SpriteRenderer spriteRenderer;
@@ -39,6 +42,14 @@ public class Grinch : MonoBehaviour
             seen = true;
             StartCoroutine(Spotted());
         }
+        if (player.position.x < transform.position.x)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     private IEnumerator Spotted()
@@ -51,6 +62,7 @@ public class Grinch : MonoBehaviour
         yield return new WaitForSeconds(spottedTime);
 
         // destroy grinch
+        Utilities.existsGrinch = false;
         Destroy(gameObject);
     }
 
@@ -59,9 +71,25 @@ public class Grinch : MonoBehaviour
         // wait for lifespan time
         yield return new WaitForSeconds(lifespan);
 
-        // destroy gift
+        // if the grinch wasn't spotted
+        if (!seen)
+        {
+            // remove gift from the list of gifts
+            Utilities.gifts.Remove(attachedGift);
+            // set the gift's house to ungifted
+            if (attachedGift.GetComponent<Gift>().attachedHouse != null)
+            {
+                attachedGift.GetComponent<Gift>().attachedHouse.gifted = false;
+            }
+            // destroy gift
+            if (attachedGift != null)
+            {
+                Destroy(attachedGift);
+            }
+        }
 
         // destroy grinch
+        Utilities.existsGrinch = false;
         Destroy(gameObject);
     }
 }

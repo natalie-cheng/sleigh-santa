@@ -5,13 +5,15 @@ using UnityEngine;
 public class Utilities : MonoBehaviour
 {
     public static House nearestHouse;
+    public static bool existsGrinch;
+    public static List<GameObject> gifts;
 
-    //public static Utilities Singleton;
 
-    //private void Start()
-    //{
-    //    Singleton = this;
-    //}
+    static Utilities()
+    {
+        gifts = new List<GameObject>();
+        existsGrinch = false;
+    }
 
     public static bool withinRange(Vector3 pos1, Vector3 pos2, float radius)
     {

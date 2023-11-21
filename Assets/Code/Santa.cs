@@ -13,7 +13,7 @@ public class Santa : MonoBehaviour
     // gifts
     public GameObject gift1Prefab;
     public GameObject gift2Prefab;
-    public GameObject gift;
+    private GameObject gift;
 
     // santa vars
     private Rigidbody2D rb;
@@ -40,7 +40,6 @@ public class Santa : MonoBehaviour
         // if santa doesn't have gift and is near sleigh
         if (Input.GetButtonDown("Gift"))
         {
-            //Debug.Log(Utilities.nearestHouse == null);
             // if santa doesn't have a gift and is near sleigh
             if (!hasGift && Sleigh.nearSleigh)
             {
@@ -50,9 +49,10 @@ public class Santa : MonoBehaviour
             // otherwise if he has a gift, is near a house, and that house doesn't have a gift
             else if (hasGift && gift != null && Utilities.nearestHouse!=null && !Utilities.nearestHouse.gifted)
             {
-                Debug.Log("PLACE GIFT");
                 // place the gift
-                gift.GetComponent<Gift>().PlaceGift();
+                gift.GetComponent<Gift>().PlaceGift(Utilities.nearestHouse);
+                // add it to the list of gifts
+                Utilities.gifts.Add(gift);
                 // santa doesn't have a gift anymore
                 hasGift = false;
                 // mark that house as gifted
@@ -110,7 +110,14 @@ public class Santa : MonoBehaviour
     private void GetGift()
     {
         // create gift
-        gift = Instantiate(gift1Prefab, transform.position, Quaternion.identity);
+        if (Random.value < 0.5f)
+        {
+            gift = Instantiate(gift1Prefab, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            gift = Instantiate(gift2Prefab, transform.position, Quaternion.identity);
+        }
         // set it to a child of santa
         gift.transform.parent = transform;
         // santa now has a gift

@@ -7,17 +7,19 @@ public class Gift : MonoBehaviour
     // adjustment for gift position
     private Vector3 reposition;
 
-    // call start
-    //private void Start()
-    //{
+    // the house this gift is attached to once placed
+    public House attachedHouse;
 
-    //}
+    // call start
+    private void Start()
+    {
+    }
 
     // frame update
     private void Update()
     {
         // if the gift is still attached to santa
-        if (transform.parent!=null)
+        if (transform.parent != null)
         {
             MoveWithPlayer();
         }
@@ -48,10 +50,12 @@ public class Gift : MonoBehaviour
     }
 
     // place the gift
-    public void PlaceGift()
+    public void PlaceGift(House house)
     {
         // leave the gift at current pos, detach from santa
         transform.parent = null;
+        // attached to given house
+        attachedHouse = house;
         // adjust if facing the house
         if (Santa.orientation == "back")
         {

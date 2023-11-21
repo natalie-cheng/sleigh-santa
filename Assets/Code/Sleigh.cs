@@ -11,7 +11,7 @@ public class Sleigh : MonoBehaviour
     public static bool nearSleigh;
 
     // radius for what is considered near sleigh
-    private float radius = 1.3f;
+    private float radius = 1.35f;
 
     // call start
     private void Start()
