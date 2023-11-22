@@ -11,7 +11,7 @@ public class Sleigh : MonoBehaviour
     public static bool nearSleigh;
 
     // radius for what is considered near sleigh
-    private float radius = 1.35f;
+    private float radius = 1.4f;
 
     // call start
     private void Start()
@@ -23,6 +23,7 @@ public class Sleigh : MonoBehaviour
     // frame update
     private void Update()
     {
+        // if the player is within range of the sleigh, adjust nearSleigh
         if (Utilities.withinRange(player.position,transform.position,radius))
         {
             nearSleigh = true;

@@ -18,6 +18,7 @@ public class Santa : MonoBehaviour
     // santa vars
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
     private bool hasGift;
     public static string orientation;
     public float speed = 2;
@@ -28,8 +29,11 @@ public class Santa : MonoBehaviour
         // initialize santa vars
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         hasGift = false;
         orientation = "front";
+        animator.SetBool("Front", true);
+        //currentTime = Time.time;
     }
 
     // frame update
@@ -69,8 +73,18 @@ public class Santa : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         // set the direction, increase by speed
-        Vector2 vec = new Vector2(horizontal, vertical);
+        Vector2 vec = new Vector2(horizontal, vertical);;
         rb.velocity = vec * speed;
+
+        // update animation
+        if (vec.magnitude > 0)
+        {
+            animator.SetBool("Moving", true);
+        }
+        else
+        {
+            animator.SetBool("Moving", false);
+        }
 
         // if moving directly up or downwards
         if (rb.velocity.x == 0)
@@ -78,14 +92,22 @@ public class Santa : MonoBehaviour
             // if moving upwards, back santa
             if (rb.velocity.y > 0)
             {
-                spriteRenderer.sprite = backSanta;
+                //spriteRenderer.sprite = backSanta;
                 orientation = "back";
+                animator.SetBool("Back", true);
+                animator.SetBool("Right", false);
+                animator.SetBool("Front", false);
+                animator.SetBool("Left", false);
             }
             // if moving downwards, front santa
             else if (rb.velocity.y < 0)
             {
-                spriteRenderer.sprite = frontSanta;
+                //spriteRenderer.sprite = frontSanta;
                 orientation = "front";
+                animator.SetBool("Back", false);
+                animator.SetBool("Right", false);
+                animator.SetBool("Front", true);
+                animator.SetBool("Left", false);
             }
         }
         // otherwise moving sideways
@@ -94,14 +116,22 @@ public class Santa : MonoBehaviour
             // if moving right, right santa
             if (rb.velocity.x > 0)
             {
-                spriteRenderer.sprite = rightSanta;
+                //spriteRenderer.sprite = rightSanta;
                 orientation = "right";
+                animator.SetBool("Back", false);
+                animator.SetBool("Right", true);
+                animator.SetBool("Front", false);
+                animator.SetBool("Left", false);
             }
             // if moving left, left santa
             else if (rb.velocity.x < 0)
             {
-                spriteRenderer.sprite = leftSanta;
+                //spriteRenderer.sprite = leftSanta;
                 orientation = "left";
+                animator.SetBool("Back", false);
+                animator.SetBool("Right", false);
+                animator.SetBool("Front", false);
+                animator.SetBool("Left", true);
             }
         }
     }

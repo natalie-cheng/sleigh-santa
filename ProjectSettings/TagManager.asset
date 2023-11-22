@@ -44,9 +44,12 @@ TagManager:
   - name: Village
     uniqueID: 1033837545
     locked: 0
+  - name: Santa
+    uniqueID: 549042881
+    locked: 0
   - name: Gift
     uniqueID: 877479871
     locked: 0
-  - name: Santa
-    uniqueID: 549042881
+  - name: Grinch
+    uniqueID: 1707227951
     locked: 0

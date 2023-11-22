@@ -8,7 +8,7 @@ public class Grinch : MonoBehaviour
     private Transform player;
 
     // radius to disappear from the player
-    private float radius = 1;
+    private float radius = 1.2f;
 
     // whether spotted by the player
     private bool seen = false;
@@ -27,9 +27,11 @@ public class Grinch : MonoBehaviour
     // call start
     private void Start()
     {
+        // initialize grinch vars
         player = FindObjectOfType<Santa>().transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        // begin counting down to disappear
         StartCoroutine(Disappear());
     }
 
@@ -39,9 +41,12 @@ public class Grinch : MonoBehaviour
         // if the player spots the grinch
         if (!seen && Utilities.withinRange(player.position, transform.position, radius))
         {
+            // mark the grinch as seen
             seen = true;
+            // start the spotted routine
             StartCoroutine(Spotted());
         }
+        // keep the grinch facing the direction of the player
         if (player.position.x < transform.position.x)
         {
             spriteRenderer.flipX = true;
@@ -52,6 +57,7 @@ public class Grinch : MonoBehaviour
         }
     }
 
+    // coroutine if grinch is spotted
     private IEnumerator Spotted()
     {
         // disable animation and change sprite
@@ -66,12 +72,13 @@ public class Grinch : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // coroutine for grinch existence
     private IEnumerator Disappear()
     {
         // wait for lifespan time
         yield return new WaitForSeconds(lifespan);
 
-        // if the grinch wasn't spotted
+        // if the grinch wasn't spotted, take the gift
         if (!seen)
         {
             // remove gift from the list of gifts

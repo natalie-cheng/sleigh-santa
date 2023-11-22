@@ -11,7 +11,7 @@ public class GrinchSpawner : MonoBehaviour
     private float probability = 0.00025f;
 
     // radius around gift
-    private float radius = 1;
+    private float radius = 1.1f;
 
     // gift reference
     private GameObject gift;
@@ -28,17 +28,18 @@ public class GrinchSpawner : MonoBehaviour
         // if there are gifts, and there is no grinch, and probability
         if (Utilities.gifts.Count > 0 && !Utilities.existsGrinch && Random.value<probability)
         {
-            // find a free point
+            // find a free point near a gift
             Vector2 position = FreePointNearGift();
             // instantiate a grinch at that point
             GameObject grinch = Instantiate(grinchPrefab, position, Quaternion.identity);
             // a grinch now exists
             Utilities.existsGrinch = true;
-            // this grinch is attached to this gift
+            // attach the grinch to the gift
             grinch.GetComponent<Grinch>().attachedGift = gift;
         }
     }
 
+    // find a free point near a gift at a house
     private Vector2 FreePointNearGift()
     {
         // find a random index of the existing gifts
@@ -49,7 +50,7 @@ public class GrinchSpawner : MonoBehaviour
         // get the gift position
         Vector2 giftPosition = (Vector2)gift.transform.position;
 
-        // random position within the spawn radius rel to gift
+        // random position within the spawn radius relative to gift
         Vector2 pos = giftPosition + Random.insideUnitCircle * radius;
 
         // check if collision

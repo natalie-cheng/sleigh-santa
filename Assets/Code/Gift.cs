@@ -11,9 +11,9 @@ public class Gift : MonoBehaviour
     public House attachedHouse;
 
     // call start
-    private void Start()
-    {
-    }
+    //private void Start()
+    //{
+    //}
 
     // frame update
     private void Update()

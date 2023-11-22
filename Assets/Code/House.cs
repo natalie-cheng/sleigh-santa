@@ -7,11 +7,8 @@ public class House : MonoBehaviour
     // get player location
     private Transform player;
 
-    // whether santa is near the house
-    public bool nearHouse;
-
     // radius for santa near house
-    private float radius = 1.2f;
+    private float radius = 1.4f;
 
     // track whether this house has been gifted
     public bool gifted;
@@ -20,11 +17,10 @@ public class House : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Santa>().transform;
-        nearHouse = false;
         gifted = false;
     }
 
-    // physics update
+    // frame update
     private void Update()
     {
         // if santa is near this house
@@ -32,11 +28,6 @@ public class House : MonoBehaviour
         {
             // then this house is the nearest house - the one to be gifted
             Utilities.nearestHouse = this;
-            nearHouse = true;
-        }
-        else
-        {
-            nearHouse = false;
         }
     }
 
