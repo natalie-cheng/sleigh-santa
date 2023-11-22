@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Village0
+    uniqueID: 2959165855
+    locked: 0
   - name: Village
     uniqueID: 1033837545
     locked: 0
