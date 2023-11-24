@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ce0acd76ec6c748d3bb0412c3d6daba9
+guid: cd1e11ea072794a0596e71fc569f3dfe
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Christmas On Crack
+  - Grinched
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
