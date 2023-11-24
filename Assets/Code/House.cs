@@ -14,20 +14,30 @@ public class House : MonoBehaviour
     public bool gifted;
 
     // call start
-    void Start()
+    private void Start()
     {
-        player = FindObjectOfType<Santa>().transform;
+        if (FindObjectOfType<Santa>() != null)
+        {
+            player = FindObjectOfType<Santa>().transform;
+        }
         gifted = false;
     }
 
     // frame update
     private void Update()
     {
-        // if santa is near this house
-        if (Utilities.withinRange(player.position, transform.position, radius))
+        if (FindObjectOfType<Santa>() != null)
         {
-            // then this house is the nearest house - the one to be gifted
-            Utilities.nearestHouse = this;
+            player = FindObjectOfType<Santa>().transform;
+        }
+        if (player != null)
+        {
+            // if santa is near this house
+            if (Utilities.withinRange(player.position, transform.position, radius))
+            {
+                // then this house is the nearest house - the one to be gifted
+                Utilities.nearestHouse = this;
+            }
         }
     }
 

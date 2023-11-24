@@ -24,13 +24,16 @@ public class Sleigh : MonoBehaviour
     private void Update()
     {
         // if the player is within range of the sleigh, adjust nearSleigh
-        if (Utilities.withinRange(player.position,transform.position,radius))
-        {
-            nearSleigh = true;
-        }
-        else
-        {
-            nearSleigh = false;
-        }
+        //if (FindObjectOfType<Santa>() != null)
+        //{
+            if (Utilities.withinRange(player.position, transform.position, radius))
+            {
+                nearSleigh = true;
+            }
+            else
+            {
+                nearSleigh = false;
+            }
+       // }
     }
 }
