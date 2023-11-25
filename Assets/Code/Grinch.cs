@@ -79,7 +79,7 @@ public class Grinch : MonoBehaviour
         yield return new WaitForSeconds(lifespan);
 
         // if the grinch wasn't spotted, take the gift
-        if (!seen)
+        if (!seen && attachedGift!=null)
         {
             // remove gift from the list of gifts
             Utilities.gifts.Remove(attachedGift);

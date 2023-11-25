@@ -16,6 +16,10 @@ public class Instructions : MonoBehaviour
     // prefabs
     public GameObject santaPrefab;
     public GameObject sleighPrefab;
+    public GameObject grinchPrefab;
+
+    private float delay = 3;
+    private bool spawning;
 
     // call start
     private void Start()
@@ -24,6 +28,34 @@ public class Instructions : MonoBehaviour
         page1.SetActive(true);
         page2.SetActive(false);
         page3.SetActive(false);
+        spawning = false;
+    }
+
+    private void Update()
+    {
+        if (page == 3 && !spawning)
+        {
+            if (GameObject.FindWithTag("Grinch") == null)
+            {
+                StartCoroutine(SpawnGrinch());
+            }
+        }
+    }
+
+    private IEnumerator SpawnGrinch()
+    {
+        spawning = true;
+        // Wait for the specified delay
+        yield return new WaitForSeconds(delay);
+
+        // spawn grinch
+        if (page == 3)
+        {
+            Vector2 position = new Vector2(-2f, -1.25f);
+            Instantiate(grinchPrefab, position, Quaternion.identity);
+        }
+
+        spawning = false;
     }
 
     // menu button
@@ -91,15 +123,26 @@ public class Instructions : MonoBehaviour
         page3.SetActive(false);
 
         Vector2 position = new Vector2(-2f, 1.5f);
-        if (GameObject.FindWithTag("Santa") == null)
+        GameObject santa = GameObject.FindWithTag("Santa");
+        if (santa == null)
         {
-            GameObject santa = Instantiate(santaPrefab, position, Quaternion.identity);
+            Instantiate(santaPrefab, position, Quaternion.identity);
+        }
+        else
+        {
+            santa.transform.position = position;
         }
 
         position = new Vector2(-2f, -0.75f);
         if (GameObject.FindWithTag("Sleigh") == null)
         {
-            GameObject sleigh = Instantiate(sleighPrefab, position, Quaternion.identity);
+            Instantiate(sleighPrefab, position, Quaternion.identity);
+        }
+
+        GameObject grinch = GameObject.FindWithTag("Grinch");
+        if (grinch != null)
+        {
+            Destroy(grinch);
         }
     }
 
@@ -114,6 +157,13 @@ public class Instructions : MonoBehaviour
         if (sleigh != null)
         {
             Destroy(sleigh);
-        }
+        }        
+
+        Vector2 position = new Vector2(-2f, 1.5f);
+        GameObject santa = GameObject.FindWithTag("Santa");
+        santa.transform.position = position;
+
+        position = new Vector2(-2f, -1.25f);
+        Instantiate(grinchPrefab, position, Quaternion.identity);
     }
 }

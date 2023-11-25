@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,12 +16,6 @@ public class GrinchSpawner : MonoBehaviour
 
     // gift reference
     private GameObject gift;
-
-    // call start
-    private void Start()
-    {
-        Debug.Log(probability);
-    }
 
     // frame update
     private void Update()
