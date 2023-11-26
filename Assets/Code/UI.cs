@@ -15,6 +15,15 @@ public class UI : MonoBehaviour
     public TextMeshProUGUI timerText;
     public GameObject pauseScreen;
     public GameObject helpScreen;
+    public GameObject gameOverScreen;
+
+    // number of houses
+    private float numHouses = 12;
+
+    // game over text
+    public TextMeshProUGUI gameOverText;
+    private string winText = "Yay!  Santa delivered all his gifts!";
+    private string lossText = "Oh no... Santa didn't deliver his gifts on time :(";
 
     // call start
     private void Start()
@@ -25,6 +34,7 @@ public class UI : MonoBehaviour
         // disable UI screens
         pauseScreen.SetActive(false);
         helpScreen.SetActive(false);
+        gameOverScreen.SetActive(false);
     }
 
     // frame update
@@ -49,7 +59,32 @@ public class UI : MonoBehaviour
         // if time is up
         if (currentTime <= 0f)
         {
-            // game end
+            // game lose
+            SetGameOverInternal(false);
+        }
+
+        // if all the houses are gifted
+        if (Utilities.gifts.Count == numHouses)
+        {
+            // game win
+            SetGameOverInternal(true);
+        }
+    }
+
+    // set game over
+    private void SetGameOverInternal(bool win)
+    {
+        if (win)
+        {
+            Time.timeScale = 0;
+            gameOverScreen.SetActive(true);
+            gameOverText.text = winText;
+        }
+        else
+        {
+            Time.timeScale = 0;
+            gameOverScreen.SetActive(true);
+            gameOverText.text = lossText;
         }
     }
 

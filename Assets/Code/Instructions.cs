@@ -18,34 +18,44 @@ public class Instructions : MonoBehaviour
     public GameObject sleighPrefab;
     public GameObject grinchPrefab;
 
+    // grinch spawning pg3
     private float delay = 3;
     private bool spawning;
 
     // call start
     private void Start()
     {
+        // set to first page
         page = 1;
+        // enable/disable pages
         page1.SetActive(true);
         page2.SetActive(false);
         page3.SetActive(false);
+        // grinch spawning
         spawning = false;
     }
 
+    // frame update
     private void Update()
     {
+        // if it's the grinch page and not already spawning
         if (page == 3 && !spawning)
         {
+            // and if a grinch doesn't already exist
             if (GameObject.FindWithTag("Grinch") == null)
             {
+                // spawn a grinch
                 StartCoroutine(SpawnGrinch());
             }
         }
     }
 
+    // grinch spawning coroutine
     private IEnumerator SpawnGrinch()
     {
+        // set spawning to true
         spawning = true;
-        // Wait for the specified delay
+        // wait for the delay
         yield return new WaitForSeconds(delay);
 
         // spawn grinch
@@ -55,6 +65,7 @@ public class Instructions : MonoBehaviour
             Instantiate(grinchPrefab, position, Quaternion.identity);
         }
 
+        // not spawning anymore
         spawning = false;
     }
 
@@ -98,16 +109,19 @@ public class Instructions : MonoBehaviour
     // page 1
     private void Page1()
     {
+        // activate/deactivate pages
         page1.SetActive(true);
         page2.SetActive(false);
         page3.SetActive(false);
 
+        // destroy santa if necessary
         GameObject santa = GameObject.FindWithTag("Santa");
         if (santa != null)
         {
             Destroy(santa);
         }
 
+        // destroy sleigh if necessary
         GameObject sleigh = GameObject.FindWithTag("Sleigh");
         if (sleigh != null)
         {
@@ -118,10 +132,12 @@ public class Instructions : MonoBehaviour
     // page 2
     private void Page2()
     {
+        // activate/deactivate pages
         page1.SetActive(false);
         page2.SetActive(true);
         page3.SetActive(false);
 
+        // create/move santa
         Vector2 position = new Vector2(-2f, 1.5f);
         GameObject santa = GameObject.FindWithTag("Santa");
         if (santa == null)
@@ -133,12 +149,14 @@ public class Instructions : MonoBehaviour
             santa.transform.position = position;
         }
 
+        // create sleigh
         position = new Vector2(-2f, -0.75f);
         if (GameObject.FindWithTag("Sleigh") == null)
         {
             Instantiate(sleighPrefab, position, Quaternion.identity);
         }
 
+        // create grinch
         GameObject grinch = GameObject.FindWithTag("Grinch");
         if (grinch != null)
         {
@@ -149,20 +167,24 @@ public class Instructions : MonoBehaviour
     // page 3
     private void Page3()
     {
+        // activate/deactivate pages
         page1.SetActive(false);
         page2.SetActive(false);
         page3.SetActive(true);
 
+        // destroy sleigh if necessary
         GameObject sleigh = GameObject.FindWithTag("Sleigh");
         if (sleigh != null)
         {
             Destroy(sleigh);
         }        
 
+        // reposiiton santa
         Vector2 position = new Vector2(-2f, 1.5f);
         GameObject santa = GameObject.FindWithTag("Santa");
         santa.transform.position = position;
 
+        // create grinch
         position = new Vector2(-2f, -1.25f);
         Instantiate(grinchPrefab, position, Quaternion.identity);
     }

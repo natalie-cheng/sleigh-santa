@@ -1536,7 +1536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1231280809839209846, guid: 0c46c47f24455473980302c70f3c8362, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.308397
+      value: -7.7
       objectReference: {fileID: 0}
     - target: {fileID: 1231280809839209846, guid: 0c46c47f24455473980302c70f3c8362, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2615,8 +2615,8 @@ Canvas:
   m_GameObject: {fileID: 2048991849}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2627,7 +2627,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &2048991853
 RectTransform:
