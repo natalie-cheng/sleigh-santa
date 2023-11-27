@@ -10,10 +10,14 @@ public class Gift : MonoBehaviour
     // the house this gift is attached to once placed
     public House attachedHouse;
 
+    // gift vars
+    private AudioSource audioSource;
+
     // call start
-    //private void Start()
-    //{
-    //}
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     // frame update
     private void Update()
@@ -65,5 +69,8 @@ public class Gift : MonoBehaviour
         {
             transform.position += Vector3.up * 0.3f;
         }
+
+        // play sound effect
+        audioSource.Play();
     }
 }

@@ -1,5 +1,5 @@
 # Sleigh, Santa!
-Last Updated: Nov 26, 2023
+Last Updated: Nov 27, 2023
 
 # Ho Ho Ho!
 It's Christmas, and Santa has gifts to deliver! Unfortunately, he's a huge procrastinator, and now he's on a time crunch – he has just a few minutes left to get the last gifts to these houses. However, the grouchy grinch is trying to seize this last opporunity to spoil Christmas, and keeps stealing the gifts Santa puts down. Scare him away if you can, and deliver all the gifts to save Christmas!
@@ -59,8 +59,14 @@ https://pngtree.com/so/pixel-gift-vector
 White gift:
 https://www.redbubble.com/i/sticker/Pixel-Present-by-chipdesigns/132524817.EJUG5   
 UI Buttons:
-https://www.freepik.com/premium-vector/start-play-pause-button-doodle-sketch-style-question-exclamation-arrow-mark-symbol_34160493.htm
+https://www.freepik.com/premium-vector/start-play-pause-button-doodle-sketch-style-question-exclamation-arrow-mark-symbol_34160493.htm   
 Font:
 https://www.1001fonts.com/grinched-font.html   
 Background Music:
-https://www.fesliyanstudios.com/royalty-free-music/downloads-c/christmas-music/33   
+https://www.fesliyanstudios.com/royalty-free-music/downloads-c/christmas-music/33  
+Evil laugh SFX:
+https://samplefocus.com/samples/evil-laugh   
+Place gift SFX:
+https://mixkit.co/free-sound-effects/win/   
+Shocked grinch SFX:
+https://pixabay.com/sound-effects/search/shocked/

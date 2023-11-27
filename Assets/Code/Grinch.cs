@@ -22,7 +22,10 @@ public class Grinch : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public Sprite shockedGrinch;
     private Animator animator;
-    private float lifespan = 8;
+    private AudioSource audioSource;
+    public AudioClip grinchSpawn;
+    public AudioClip grinchScare;
+    private float lifespan = 6;
 
     // call start
     private void Start()
@@ -31,8 +34,11 @@ public class Grinch : MonoBehaviour
         player = FindObjectOfType<Santa>().transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         // begin counting down to disappear
         StartCoroutine(Disappear());
+        // play sound effect
+        audioSource.PlayOneShot(grinchSpawn,3);
     }
 
     // frame update
@@ -63,6 +69,9 @@ public class Grinch : MonoBehaviour
         // disable animation and change sprite
         animator.enabled = false;
         spriteRenderer.sprite = shockedGrinch;
+
+        // play scared audio
+        audioSource.PlayOneShot(grinchScare);
 
         // wait for a second
         yield return new WaitForSeconds(spottedTime);

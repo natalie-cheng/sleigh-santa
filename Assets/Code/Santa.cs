@@ -19,6 +19,7 @@ public class Santa : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private AudioSource audioSource;
     private bool hasGift;
     public static string orientation;
     public float speed = 2;
@@ -30,10 +31,10 @@ public class Santa : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         hasGift = false;
         orientation = "front";
         animator.SetBool("Front", true);
-        //currentTime = Time.time;
     }
 
     // frame update
@@ -152,5 +153,7 @@ public class Santa : MonoBehaviour
         gift.transform.parent = transform;
         // santa now has a gift
         hasGift = true;
+        // play sound effect
+        audioSource.Play();
     }
 }
