@@ -8,6 +8,8 @@ public class Menu : MonoBehaviour
     // start button
     public void Play()
     {
+        // clear gifts
+        Utilities.gifts = new List<GameObject>();
         SceneManager.LoadScene("Main");
     }
 

@@ -120,6 +120,9 @@ public class UI : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1;
+        // clear the gifts list
+        Utilities.gifts = new List<GameObject>();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
