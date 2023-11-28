@@ -12,12 +12,12 @@ While this project is a culmination of the things I have learned this quarter, I
 When first designing the game, I knew I wanted a retro pixel-vibe, similar to Stardew Valley. This informed a lot of my design and game choices, and I'm happy that the final product ultimately ended up pretty similar to my vision. More details on the design can be found in the DEVLOG.pdf file.
 
 ## Aesthetic Goals
-- aesthetic goal 1
-    - Success:
-    - Failure:
-- aesthetic goal 2
-    - Success:
-    - Failure:
+- The player is motivated to deliver all the gifts, and feels a sense of achievement when all the gifts are delivered.
+    - Success: The player is satisfied when they manage to deliver all the gifts.
+    - Failure: The player is not motivated to deliver the gifts.
+- The player experiences tension and urgency when the grinch threatens to steal the gifts.
+    - Success: The player feels tension when the grinch appears, and is motivated to scare it away.
+    - Failure: The player does not find the grinch exciting or care whether the grinch steals the gifts.
 
 ## Core Loop
 1. Pick up gift at sleigh.
@@ -44,6 +44,21 @@ Alternatively, you can open the project in the Unity Editor. It uses Unity 2022.
 Open and run the "MainMenu" scene to start the game.
 
 # Images
+![Main Menu](External/Menu.png)   
+*Main Menu*
+
+![Instructions 1](External/Instructions1.png)   
+![Instructions 2](External/Instructions2.png)   
+![Instructions 3](External/Instructions3.png)   
+*Instructions*
+
+![Gameplay 1](External/Gameplay1.png)   
+![Gameplay 2](External/Gameplay2.png)   
+*Gameplay*
+
+![Win Screen](External/WinScreen.png)   
+![Loss Screen](External/LossScreen.png)   
+*Win/Loss Screens*
 
 # Credits
 Santa Sprite:

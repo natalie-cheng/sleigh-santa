@@ -8,7 +8,7 @@ public class House : MonoBehaviour
     private Transform player;
 
     // radius for santa near house
-    private float radius = 1.2f;
+    private float radius = 1.25f;
 
     // track whether this house has been gifted
     public bool gifted;
@@ -37,6 +37,7 @@ public class House : MonoBehaviour
             {
                 // then this house is the nearest house - the one to be gifted
                 Utilities.nearestHouse = this;
+                Debug.Log("Near hosue");
             }
         }
     }
