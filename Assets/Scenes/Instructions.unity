@@ -491,7 +491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &255184245
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1825,7 +1825,7 @@ MonoBehaviour:
 
     Press SPACE
     to pick up and place down gifts. You can pick up gifts near the sleigh, and place
-    them down near houses.'
+    them in front of  houses.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d15edb5030d64dad8a3144270978968, type: 2}
   m_sharedMaterial: {fileID: -6304137034652597942, guid: 5d15edb5030d64dad8a3144270978968, type: 2}
@@ -3116,7 +3116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1619708335
 RectTransform:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ public class Grinch : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip grinchSpawn;
     public AudioClip grinchScare;
-    private float lifespan = 6;
+    private float lifespan = 5;
 
     // call start
     private void Start()
@@ -60,6 +60,11 @@ public class Grinch : MonoBehaviour
         else
         {
             spriteRenderer.flipX = false;
+        }
+        // destroy self if the game is over
+        if (UI.gameOver)
+        {
+            Destroy(gameObject);
         }
     }
 

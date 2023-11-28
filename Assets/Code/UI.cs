@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class UI : MonoBehaviour
 {
     // total timer time
-    private float totalTime = 180f;
+    private float totalTime = 181f;
     // track current time
     private float currentTime;
 
@@ -20,10 +20,11 @@ public class UI : MonoBehaviour
     // number of houses
     private float numHouses = 12;
 
-    // game over text
+    // game over
     public TextMeshProUGUI gameOverText;
     private string winText = "Yay!  Santa delivered all his gifts!";
     private string lossText = "Oh no... Santa didn't deliver his gifts on time :(";
+    public static bool gameOver;
 
     // call start
     private void Start()
@@ -35,6 +36,9 @@ public class UI : MonoBehaviour
         pauseScreen.SetActive(false);
         helpScreen.SetActive(false);
         gameOverScreen.SetActive(false);
+
+        // game is not over
+        gameOver = false;
     }
 
     // frame update
@@ -49,15 +53,8 @@ public class UI : MonoBehaviour
         // update timer
         currentTime -= Time.deltaTime;
 
-        // calculate time
-        int minutes = Mathf.FloorToInt(currentTime / 60);
-        int seconds = Mathf.FloorToInt(currentTime % 60);
-
-        // display time
-        timerText.text = "Time: " + (minutes > 0 ? minutes.ToString() : "0") + ":" + (seconds >= 10 ? seconds.ToString() : "0" + seconds.ToString());
-
         // if time is up
-        if (currentTime <= 0f)
+        if (currentTime <= 1f)
         {
             // game lose
             SetGameOverInternal(false);
@@ -69,11 +66,20 @@ public class UI : MonoBehaviour
             // game win
             SetGameOverInternal(true);
         }
+
+        // calculate time
+        int minutes = Mathf.FloorToInt(currentTime / 60);
+        int seconds = Mathf.FloorToInt(currentTime % 60);
+
+        // display time
+        timerText.text = "Time: " + (minutes > 0 ? minutes.ToString() : "0") + ":" + (seconds >= 10 ? seconds.ToString() : "0" + seconds.ToString());
+
     }
 
     // set game over
     private void SetGameOverInternal(bool win)
     {
+        gameOver = true;
         if (win)
         {
             Time.timeScale = 0;

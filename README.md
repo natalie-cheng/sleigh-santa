@@ -29,7 +29,7 @@ When first designing the game, I knew I wanted a retro pixel-vibe, similar to St
 This game is intended to be played with a keyboard. There are additional instructions in the INSTRUCTIONS.pdf file.
 - Use the arrow keys or WASD keys to move.
 - Press SPACE to pick up or place a gift.
-    - Gifts can only be picked up near the sleigh, and can only be placed near houses.
+    - Gifts can only be picked up near the sleigh, and can only be placed in front of houses.
 - Place gifts at all the houses within the timeframe to win.
 - The grinch will randomly appear at houses with gifts. He will stay there for a few seconds, then disappear with the gift. However, if you can get close enough to the grinch before he disappears, you can scare him off.
 - If you do not place all the gifts at the houses in time, you lose.

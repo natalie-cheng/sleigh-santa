@@ -23,15 +23,21 @@ public class GrinchSpawner : MonoBehaviour
         // if there are gifts, and there is no grinch, and probability
         if (Utilities.gifts.Count > 0 && !Utilities.existsGrinch && Random.value<probability)
         {
-            // find a free point near a gift
-            Vector2 position = FreePointNearGift();
-            // instantiate a grinch at that point
-            GameObject grinch = Instantiate(grinchPrefab, position, Quaternion.identity);
-            // a grinch now exists
-            Utilities.existsGrinch = true;
-            // attach the grinch to the gift
-            grinch.GetComponent<Grinch>().attachedGift = gift;
+            SpawnGrinch();
         }
+    }
+
+    // spawn grinch
+    private void SpawnGrinch()
+    {
+        // find a free point near a gift
+        Vector2 position = FreePointNearGift();
+        // instantiate a grinch at that point
+        GameObject grinch = Instantiate(grinchPrefab, position, Quaternion.identity);
+        // a grinch now exists
+        Utilities.existsGrinch = true;
+        // attach the grinch to the gift
+        grinch.GetComponent<Grinch>().attachedGift = gift;
     }
 
     // find a free point near a gift at a house
