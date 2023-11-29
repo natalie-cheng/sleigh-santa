@@ -9,7 +9,8 @@ public class GrinchSpawner : MonoBehaviour
     public GameObject grinchPrefab;
 
     // probability of grinch spawn every frame update
-    private float probability = 0.00015f;
+    private float probability = 0.00028f;
+    //private float probability = 0.0025f;
 
     // radius around gift
     private float radius = 1.1f;
